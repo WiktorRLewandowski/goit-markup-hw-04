@@ -15,6 +15,9 @@
   --portfolio-bg-clr: var(--primary-address-font-clr);
   --porftolio-btn-inactive: #f5f4fa;
   --portfolio-fig-border: #eeeeee;
+  --icon-primary-clr: #AFB1B8;
+  --icon-secondary-clr: var(--primary-address-font-clr);
+  --footer-socials-bg: #FFFFFF1A;
 }
 
 /* //////////////
@@ -61,16 +64,17 @@ body {
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  padding-inline: 15px;
 }
 
-.section {
+.section,
+.section-portfolio {
   background-color: var(--section-bg-clr);
   padding: 94px 0;
 }
 
-.section-advantages {
-  background-color: var(--section-bg-clr);
-  padding-top: 101px;
+.section:first-of-type {
+  padding-bottom: 0;
 }
 
 /*deleting base formatting, margins, paddings in links and lists elements*/
@@ -92,11 +96,7 @@ body {
   padding: 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-p {
+* {
   margin: 0;
   padding: 0;
   margin-block: 0 0;
@@ -108,6 +108,7 @@ p {
 .link:focus,
 .link[href="#"] {
   color: var(--brand-clr);
+  fill: currentColor;
 }
 
 [type="button"]:hover {
@@ -125,6 +126,43 @@ p {
   color: var(--button-font-clr);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
+}
+
+.portfolio-projects:hover {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.socials-icon:hover,
+.join-us .socials-icon:hover {
+  background-color: var(--brand-clr);
+  fill: var(--icon-secondary-clr);
+}
+
+.clients-icon:hover,
+.clients-icon:focus {
+  border-color: var(--brand-clr);
+  fill: var(--brand-clr);
+}
+
+/* spróbuj pozbyć się divów i wystylować płótno svg */
+
+
+/* icons styling */
+
+.icon {
+  display: inline-block;
+  stroke-width: 0;
+  stroke: currentColor;
+
+}
+
+.contact>.icon {
+  position: relative;
+  right: 10px;
+  bottom: 1px;
+  vertical-align: middle;
+
+  fill: currentColor;
 }
 
 /* logo styling */
@@ -155,7 +193,6 @@ p {
   margin-bottom: 20px;
 }
 
-/* font styling */
 
 /* navigation bar */
 
@@ -197,7 +234,10 @@ p {
 
 .nav-bar .contact {
   display: inline-block;
-  margin: 0 25px;
+}
+
+.nav-bar .contact:last-child {
+  margin-left: 50px;
 }
 
 /* the big banner and address */
@@ -209,12 +249,19 @@ p {
 }
 
 .header-banner {
+  background-image: linear-gradient(#2F303A66, #2F303A66), url(../images/bg-banner.jpg);
+  background-size: cover;
+  background-position: center;
+
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  max-width: 1600px;
   padding: 200px 0;
   margin-top: 80px;
+  margin-inline: auto;
 }
 
 .footer address,
@@ -228,11 +275,17 @@ p {
   padding: 60px;
 }
 
+.footer-flex {
+  display: flex;
+
+}
+
 .footer .contact {
   display: inline-block;
   color: var(--secondary-font-clr);
   margin-top: 9px;
 }
+
 
 .header-banner h1 {
   font-weight: 900;
@@ -278,14 +331,27 @@ p {
   line-height: 1.62;
 }
 
-/* our advantages */
+/* our advantages, join us font */
 
-.advantages h3 {
+.advantages h3,
+.join-us h3 {
   font-weight: 700;
   font-size: 14px;
   line-height: 1.1428;
   text-transform: uppercase;
+
+}
+
+.advantages h3 {
   margin-bottom: 9px;
+}
+
+.join-us h3 {
+  margin-bottom: 20px;
+}
+
+.advantages .text {
+  box-sizing: content-box;
 }
 
 .advantages .text {
@@ -294,25 +360,38 @@ p {
   line-height: 1.71;
 }
 
+.advantages-icon {
+  background-color: var(--secondary-section-bg-clr);
+  border-radius: 4px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 30px;
+  padding: 25px 100px;
+}
+
 /* area of expertise */
 
-.advantages .list,
-.aoe .list,
-.staff-container .list {
+.advantages>.list,
+.aoe>.list,
+.staff-container>.list {
   display: flex;
   /* justify-content: space-between; */
   gap: 30px;
   justify-content: center;
 }
 
-.aoe .list {
+.aoe>.list {
   flex-wrap: wrap;
 }
 
 /* headings */
 
 .aoe h2,
-.staff h2 {
+.staff h2,
+.clients h2 {
   font-weight: 700;
   font-size: 36px;
   line-height: 1.16;
@@ -344,10 +423,69 @@ p {
 
 .staff-box .text {
   color: var(--secondary-font-clr);
+  margin-bottom: 16px;
 }
 
 .staff-box figcaption {
   padding: 30px;
+}
+
+/* our clients */
+
+.clients-container {
+  display: flex;
+  justify-content: center;
+}
+
+.clients-icon {
+  fill: var(--icon-primary-clr);
+  stroke: var(--icon-primary-clr);
+
+  border: 1px solid var(--icon-primary-clr);
+  border-radius: 4px;
+  margin-inline: 15px;
+
+  padding: 16px 32px;
+}
+
+/* socials links */
+
+.socials {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 44px;
+}
+
+.socials-icon {
+  display: flex;
+  align-items: center;
+
+  border-radius: 50%;
+
+  fill: var(--icon-primary-clr);
+
+  margin-top: 16px;
+}
+
+.socials-icon>.icon {
+  padding: 12px;
+}
+
+.join-us {
+  margin-top: 12px;
+  margin-left: 70px;
+}
+
+.join-us .socials {
+  gap: 10px;
+}
+
+.join-us .socials-icon {
+  background-color: var(--footer-socials-bg);
+  gap: 10px;
+
+  fill: var(--icon-secondary-clr);
 }
 
 /* portfolio */
