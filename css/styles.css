@@ -144,7 +144,16 @@ body {
   fill: var(--brand-clr);
 }
 
-/* spróbuj pozbyć się divów i wystylować płótno svg */
+.portfolio-projects:hover,
+.socials-icon:hover,
+.clients-icon:hover {
+  cursor: pointer;
+}
+
+.join-us .socials-icon:hover {
+  cursor: url(../images/custom-pointer.svg), auto;
+}
+
 
 
 /* icons styling */
