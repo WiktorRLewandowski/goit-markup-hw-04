@@ -26,25 +26,29 @@
       1. global styling
         1.1. deleting base formatting
       
-        2. hover decoration
+      2. hover decoration
+         2.1. icon styling
         
-        3. logo styling
+      3. logo styling
 
-        4. navigation bar
+      4. navigation bar
 
-        5. the big banner and footer/address
+      5. the big banner and footer/address
 
-        6. button styling
+      6. button styling
 
-        7. sections
-          7.1.our advantages
-          7.2.area of expertise
-          7.3.section headings
-          7.4.our staff
+      7. sections
+        7.1.our advantages
+        7.2.area of expertise
+        7.3.section headings
+        7.4.our staff
+        7.5.our clients
 
-        8. portfolio page
+      8. socials links
 
-        9. "kontakt" page
+      9. portfolio page
+
+      10. "kontakt" page
 
 //////////////////*/
 
@@ -165,11 +169,9 @@ body {
 
 }
 
-.contact>.icon {
-  position: relative;
-  right: 10px;
-  bottom: 1px;
+.contact .icon {
   vertical-align: middle;
+  margin-right: 10px;
 
   fill: currentColor;
 }
@@ -237,17 +239,22 @@ body {
 }
 
 .contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+
   color: var(--secondary-font-clr);
   margin-left: auto;
+  padding-left: 15px;
 }
 
 .nav-bar .contact {
-  display: inline-block;
+  display: block;
 }
 
-.nav-bar .contact:last-child {
+/* .nav-bar .contact:last-child {
   margin-left: 50px;
-}
+} */
 
 /* the big banner and address */
 
@@ -348,7 +355,6 @@ body {
   font-size: 14px;
   line-height: 1.1428;
   text-transform: uppercase;
-
 }
 
 .advantages h3 {
@@ -395,6 +401,8 @@ body {
 .aoe>.list {
   flex-wrap: wrap;
 }
+
+
 
 /* headings */
 
